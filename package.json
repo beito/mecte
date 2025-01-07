@@ -1,0 +1,42 @@
+{
+  "name": "proyectograduacion",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_PATH=./ node index.js",
+    "test": "start",
+    "migration:generate": "sequelize-cli migration:generate --name",
+    "migration:run": "sequelize-cli db:migrate",
+    "migration:runone": "sequelize-cli db:migrate --to= --name",
+    "migration:revert": "sequelize-cli db:migrate:undo",
+    "seeder:generate": "sequelize-cli seed:generate --name",
+    "seeder:run": "sequelize-cli db:seed:all",
+    "seeder:runone": "sequelize-cli db:seed --seed"
+  },
+  "author": "https://github.com/beito",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@joi/date": "^2.1.0",
+    "bcrypt": "^5.1.0",
+    "bluebird": "^3.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "luxon": "^3.3.0",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.2",
+    "pg": "^8.11.0",
+    "read-excel-file": "^5.6.1",
+    "sequelize": "^6.31.1",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
+}
