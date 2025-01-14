@@ -2,7 +2,7 @@ const { config } = require('../utils/sequelize/config');
 
 const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
-const URI = `${config.dbDialect}://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
+const URI = process.env.DATABASE_URL || `${config.dbDialect}://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 
 module.exports = {
     development: {
@@ -19,6 +19,12 @@ module.exports = {
         maxConcurrentQueries: config.dbMaxConcurrentQueries,
         dialect: config.dbDialect,
         pool: config.pool,
-        language: config.dbLanguage
+        language: config.dbLanguage,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false,
+            },
+        }
     }
 }
