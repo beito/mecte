@@ -11,7 +11,7 @@ const routerApi = require("./routes");
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler');
 
 const api = express();
-const apiPort = process.env.PORT || 8000;
+const apiPort = process.env.PORT || 3000;
 const apiHost = process.env.HOST || "localhost";
 
 api.use(cors());
