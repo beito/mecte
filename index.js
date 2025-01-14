@@ -11,8 +11,7 @@ const routerApi = require("./routes");
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler');
 
 const api = express();
-const apiPort = process.env.PORT || 3000;
-const apiHost = process.env.HOST || "localhost";
+const apiPort = process.env.PORT || 3000; // Heroku asigna automáticamente el puerto
 
 api.use(cors());
 api.use(helmet());
@@ -49,8 +48,8 @@ api.use(errorHandler);
 
 const apiServer = http.createServer(api);
 
-apiServer.listen(apiPort, apiHost, () => {
-  console.log(`API running on ${apiHost}:${apiPort}`);
+apiServer.listen(apiPort, () => {
+  console.log(`API running on port ${apiPort}`);
   console.log("Testing DB Connection:");
 });
 
