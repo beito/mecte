@@ -10,10 +10,15 @@ const sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword,
     maxConcurrentQueries: config.dbMaxConcurrentQueries,
     dialect: config.dbDialect,
     pool: config.pool,
-    language: config.dbLanguage
+    language: config.dbLanguage,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
+        },
+    },
 });
 
 setupModels(sequelize);
 
 module.exports = sequelize;
-
