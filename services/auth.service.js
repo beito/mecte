@@ -278,6 +278,8 @@ class AuthService {
     }
 
     async login(credentials) {
+        console.log("Cuba: ");
+
         const { email, password } = credentials;
         try {
             const usersFound = await this.model.findOne({
@@ -317,6 +319,8 @@ class AuthService {
                 token
             };
         } catch (error) {
+            console.log("Error: ");
+            console.log(error);
             throw new Error("Error de Servidor. Intente de nuevo más tarde.");
         }
     }
