@@ -13,7 +13,7 @@ const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('
 const api = express();
 const apiPort = process.env.PORT || 3000; // Heroku asigna automáticamente el puerto
 
-api.use(cors());
+app.use(cors({ origin: 'https://mecte-front-576fbc87a307.herokuapp.com' }));
 api.use(helmet());
 
 api.use(bodyParser.urlencoded({ limit: "100mb", extended: false }));
