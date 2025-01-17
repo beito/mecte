@@ -11,9 +11,9 @@ const routerApi = require("./routes");
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler');
 
 const api = express();
-const apiPort = process.env.PORT || 3000; // Heroku asigna automáticamente el puerto
+const apiPort = process.env.PORT || 3000;
 
-app.use(cors({ origin: 'https://mecte-front-576fbc87a307.herokuapp.com' }));
+api.use(cors());
 api.use(helmet());
 
 api.use(bodyParser.urlencoded({ limit: "100mb", extended: false }));
